@@ -1,4 +1,4 @@
-## Last Writer Wins Element Set with CRDT Implementation
+# Last Writer Wins Element Set with CRDT Implementation
 
 The functionality of the LWW set is that you can assign LWW graphs to each client, and be able to change elements (add or remove) without worry of them getting mixed up due to time or update issues. This allows for offline and asynchronous client side modification of elements, yet when the LWW graphs link up everything merges correctly without conflict.
 
@@ -17,7 +17,7 @@ The outline of the entire use case is:
 
 This allows you to get the most recent client side updates possible, then when the clients sync and graphs merge, it allows you to properly translate the offline add / removes to the true most current graph.
 
-# File structure
+## File structure
 
 The following are the files used to create the two different implementations of this system. 
 
@@ -30,7 +30,7 @@ The following are the files used to create the two different implementations of 
 + `lww_testing.ipynb`
     - This notebooks covers what this does, how to use the code, and testing its features to ensure it is working correctly. _The testing was only done with the set implementation._
 
-## Simple G-Counter Implementation
+# Simple G-Counter Implementation
 
 The functionality of the G Counter is that it never decreases. Thus, it is an easy implementation to have multiple counters that keeps track of multiple states asynchronously and independently. This allows for chatter between two counters to periodically update and give fast estimates of the total count if the clients counter requests one. This gives the client a faster response time at the cost of not giving an exact value to the client, however it also creates great functionality for offline tallying as counters can merge nodes when they are back online.
 
